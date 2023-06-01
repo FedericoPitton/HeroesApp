@@ -24,7 +24,7 @@ export const childHeroesRoutes = [
         element: <SearchPage />
     },
     {
-        path: "*",
+        path: "/",
         element: <Navigate to={'marvel'}/>
     },
 
