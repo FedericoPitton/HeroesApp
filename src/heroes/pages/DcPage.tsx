@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeroList } from '../components'
+import { PaginationButtons } from '../components/PaginationButtons'
 
 export const DcPage = () => {
   return (

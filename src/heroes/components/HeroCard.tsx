@@ -6,7 +6,7 @@ export const HeroCard = ({ id, name, biography, images, }: ISuperhero) => {
     const { md, lg, xs, sm }: Iimages = images;
 
     return (
-        <div className="col">
+        <div className="col animate__animated animate__fadeIn">
             <div className="card">
                 <div className="row no-gutters">
                     <div className="col-4">
@@ -17,13 +17,14 @@ export const HeroCard = ({ id, name, biography, images, }: ISuperhero) => {
                             <h5 className="card-title">
                                 {name}
                             </h5>
-                            <p className="card-text">{fullName ? fullName : name}</p>
-                            <p>{aliases}</p>
-                            <p className="card-text">
-                                <small className="text-muted">{firstAppearance}</small>
-                            </p>
+                            <p className="card-text text-truncate">{fullName ? fullName : name}</p>
 
-                            <Link to={`/hero/`}>
+                            {/* <p>{aliases}</p> */}
+                            {/* <p className="card-text">
+                                <small className="text-muted">{firstAppearance}</small>
+                            </p> */}
+
+                            <Link to={`/hero/${id}`} className="btn btn-primary">
                                 More...</Link>
                         </div>
 
