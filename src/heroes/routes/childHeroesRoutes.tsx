@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { DcPage, MarvelPage,HeroePage,SearchPage } from "../pages";
 
-export const childHeroesRoutes = [
+export const ChildHeroesRoutes = [
 
     {
         index: true,
