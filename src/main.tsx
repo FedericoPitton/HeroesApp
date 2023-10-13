@@ -1,11 +1,11 @@
 import React from 'react';
-import  ReactDOM  from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
+import { HeroesApp } from './HeroesApp';
 import './style.css'
-import { AppRouter } from './router/AppRouter';
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AppRouter/>
+    <HeroesApp />
   </React.StrictMode>,
 )
