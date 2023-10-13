@@ -28,7 +28,7 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
         if (startPage > 1) {
             buttons.push(
                 <li key="ellipsis-start" className="page-item">
-                    <a className="page-link" onClick={() => handlePageChange(startPage - 1)}>
+                    <a className="page-link" onClick={() => handlePageChange(startPage - 1)} style={{ cursor: 'pointer' }}>
                         ...
                     </a>
                 </li>
@@ -38,7 +38,7 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
         for (let i = startPage; i <= endPage; i++) {
             buttons.push(
                 <li key={i} className={`page-item ${page === i ? 'active' : ''}`}>
-                    <a className="page-link" onClick={() => handlePageChange(i)}>
+                    <a className="page-link" onClick={() => handlePageChange(i)} style={{ cursor: 'pointer' }}>
                         {i}
                     </a>
                 </li>
@@ -48,7 +48,7 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
         if (endPage < totalPages) {
             buttons.push(
                 <li key="ellipsis-end" className="page-item">
-                    <a className="page-link" onClick={() => handlePageChange(endPage + 1)}>
+                    <a className="page-link" onClick={() => handlePageChange(endPage + 1)} style={{ cursor: 'pointer' }}>
                         ...
                     </a>
                 </li>
@@ -64,13 +64,13 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
         <nav aria-label="...">
             <ul className="pagination mt-4">
                 <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
-                    <a className="page-link" onClick={() => handlePageChange(page - 1)}>
+                    <a className="page-link" onClick={() => handlePageChange(page - 1)} style={{ cursor: 'pointer' }}>
                         Previous
                     </a>
                 </li>
                 {showButtons && renderPageButtons()}
                 <li className={`page-item ${page === totalPages ? 'disabled' : ''}`}>
-                    <a className="page-link" onClick={() => handlePageChange(page + 1)}>
+                    <a className="page-link" onClick={() => handlePageChange(page + 1)} style={{ cursor: 'pointer' }}>
                         Next
                     </a>
                 </li>
