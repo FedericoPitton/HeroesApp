@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getHeroesByPublisher, ISuperhero } from '../helpers'
-import { getHeroesByName } from '../helpers/getHeroesByName';
 import { HeroCard } from './HeroCard';
 import { PaginationButtons } from './PaginationButtons';
 
-export const HeroList = ({ publisher}: any) => {
+export const HeroList = ({ publisher }: any) => {
   const [heroes, setHeroes] = useState<ISuperhero[]>([]);
   const [page, setpage] = useState(1)
   const [pageSize, setpageSize] = useState(15)
@@ -29,14 +28,15 @@ export const HeroList = ({ publisher}: any) => {
 
   return (
     <div className="d-flex flex-column align-items-center mt-4 mb-4">
-      <div className="row rows-clos-1 row-cols-md-3 g-3">
-        {heroes.map((hero: ISuperhero) => {
-          return <HeroCard key={hero.id} {...hero} />;
-        })}
+      <div className="row">
+        {heroes.map((hero: ISuperhero) => (
+          <div className="col-12 col-md-6 col-lg-4 g-3" key={hero.id}>
+            <HeroCard {...hero} />
+          </div>
+        ))}
       </div>
       <PaginationButtons page={page} totalPages={totalPages} setPage={setpage} />
     </div>
-
 
   )
 }

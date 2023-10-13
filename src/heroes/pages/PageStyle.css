@@ -1,0 +1,13 @@
+@media (max-width: 800px) {
+  .image-below-text img {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .image-below-search {
+    /* max-width: 300px; */
+    width: 100%;
+  }
+}

@@ -3,6 +3,7 @@ import { HeroListSearch } from "../components/HeroListSearch";
 import { ISuperhero } from "../helpers";
 import { getHeroesByName } from "../helpers/getHeroesByName";
 import { useForm } from "../hooks/useForm";
+import './PageStyle.css'
 
 export const SearchPage = () => {
   const { searchText, onInputChange } = useForm({
@@ -59,7 +60,7 @@ export const SearchPage = () => {
     <>
       <h1>Search</h1>
       <div className="row">
-        <div className="col-5">
+        <div className="col-sm-12 col-md-5 col-lg-5">
           <h4>Searching</h4>
           <hr />
           <form onSubmit={onSearchSubmit}>
@@ -77,7 +78,7 @@ export const SearchPage = () => {
             </button>
           </form>
         </div>
-        <div className="col-7">
+        <div className="col-sm-12 col-md-7 col-lg-7 image-below-search">
           <h4>Results</h4>
           <hr />
           {searchResults.length === 0 && !noResults && (

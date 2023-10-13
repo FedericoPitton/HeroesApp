@@ -5,6 +5,7 @@ export const HeroCard = ({ id, name, biography, images, }: ISuperhero) => {
     const { publisher, fullName, firstAppearance, aliases }: Ibiography = biography;
     const { md, lg, xs, sm }: Iimages = images;
 
+
     return (
         <div className="col animate__animated animate__fadeIn">
             <div className="card">
@@ -33,4 +34,6 @@ export const HeroCard = ({ id, name, biography, images, }: ISuperhero) => {
             </div>
         </div>
     );
-};
+
+}
+
