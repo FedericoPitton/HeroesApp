@@ -1,14 +1,22 @@
+import { useContext, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth';
 
+const categoryList = ['Marvel', 'DC', 'Search']
 
 export const Navbar = () => {
 
+    const { user, logout }: any = useContext(AuthContext)
     const navigate = useNavigate();
-    const handleLogout = ()=> {
+
+    const handleLogout = () => {
+        logout();
         navigate('/login', {
             replace: true
         })
     }
+
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
 
@@ -16,44 +24,33 @@ export const Navbar = () => {
                 className="navbar-brand"
                 to="/"
             >
-                SuperHeroes 
+                SuperHeroes
             </Link>
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    <NavLink
-                        className={({ isActive }) => `nav-link nav-item ${isActive ? 'active' : ''}`}
-                        to="marvel"
-                    >
-                        Marvel
-                    </NavLink>
-
-                    <NavLink
-                        className={({ isActive }) => `nav-link nav-item ${isActive ? 'active' : ''}`}
-                        to="dc"
-                    >
-                        DC
-                    </NavLink>
-                    <NavLink
-                        className={({ isActive }) => `nav-link nav-item ${isActive ? 'active' : ''}`}
-                        to="search"
-                    >
-                        Search
-                    </NavLink>
+                    {categoryList.map((category, index) => (
+                        <NavLink
+                            className={({ isActive }) => `nav-link nav-item ${isActive ? 'active' : ''}`}
+                            to={category.toLocaleLowerCase()}
+                            key={index}>
+                            {category}
+                        </NavLink>
+                    ))}
                 </div>
             </div>
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
                     <span className='nav-item nav-link text-primary'>
-                        Federico
+                        {user?.name}
                     </span>
-                    <button 
-                    onClick={handleLogout}
-                    className='nav-item nav-link btn'>Logout</button>
+                    <button
+                        onClick={handleLogout}
+                        className='nav-item nav-link btn'>Logout</button>
                 </ul>
             </div>
-        </nav>
+        </nav >
     )
 }
