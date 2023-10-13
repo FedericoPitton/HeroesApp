@@ -9,12 +9,12 @@ export const HeroCard = ({ id, name, biography, images, }: ISuperhero) => {
         <div className="col animate__animated animate__fadeIn">
             <div className="card">
                 <div className="row no-gutters">
-                    <div className="col-4">
+                    <div className="col-5">
                         <img src={md} className="card-img" alt={fullName}></img>
                     </div>
-                    <div className="col-8">
+                    <div className="col-7">
                         <div className="card-body">
-                            <h5 className="card-title">
+                            <h5 className="card-title text-truncate">
                                 {name}
                             </h5>
                             <p className="card-text text-truncate">{fullName ? fullName : name}</p>
