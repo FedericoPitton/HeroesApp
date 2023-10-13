@@ -11,6 +11,7 @@ export const SearchPage = () => {
 
   const [searchResults, setSearchResults] = useState<ISuperhero[]>([]);
   const [totalPages, setTotalPages] = useState(0);
+  const [noResultsText, setnoResultsText] = useState()
   const [page, setpage] = useState(1)
   const [pageSize, setPageSize] = useState(6);
   const [noResults, setNoResults] = useState(false);
@@ -36,6 +37,7 @@ export const SearchPage = () => {
       setSearchResults(data);
       setTotalPages(totalPages);
       setNoResults(data.length === 0); 
+      setnoResultsText(searchText)
     } catch (error) {
       console.log(error);
       setSearchResults([]);
@@ -83,7 +85,7 @@ export const SearchPage = () => {
           )}
           {noResults && (
             <div className="alert alert-danger animate__animated animate__bounce">
-              No hero found with <b>"{searchText}"</b>
+              No hero found with <b>"{noResultsText}"</b>
             </div>
           )}
           {searchResults.length > 0 && (
