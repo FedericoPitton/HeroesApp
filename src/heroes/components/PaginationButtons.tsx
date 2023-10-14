@@ -25,6 +25,15 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
             endPage = totalPages;
         }
 
+        if (startPage > 1){
+            buttons.push(
+                <li key="start-page" className="page-item">
+                    <a className="page-link" onClick={() => handlePageChange(1)} style={{ cursor: 'pointer' }}>
+                        1
+                    </a>
+                </li>
+            );
+        }
         if (startPage > 1) {
             buttons.push(
                 <li key="ellipsis-start" className="page-item">
@@ -54,6 +63,16 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
                 </li>
             );
         }
+        
+        if (endPage < totalPages){
+            buttons.push(
+                <li key="total-pages" className="page-item">
+                    <a className="page-link" onClick={() => handlePageChange(totalPages)} style={{ cursor: 'pointer' }}>
+                        {totalPages}
+                    </a>
+                </li>
+            );
+        }
 
         return buttons;
     };
@@ -63,17 +82,17 @@ export const PaginationButtons = ({ page, totalPages, setPage }: any) => {
     return (
         <nav aria-label="...">
             <ul className="pagination mt-4">
-                <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
+                {/* <li className={`page-item ${page === 1 ? 'disabled' : ''}`}>
                     <a className="page-link" onClick={() => handlePageChange(page - 1)} style={{ cursor: 'pointer' }}>
                         Previous
                     </a>
-                </li>
+                </li> */}
                 {showButtons && renderPageButtons()}
-                <li className={`page-item ${page === totalPages ? 'disabled' : ''}`}>
+                {/* <li className={`page-item ${page === totalPages ? 'disabled' : ''}`}>
                     <a className="page-link" onClick={() => handlePageChange(page + 1)} style={{ cursor: 'pointer' }}>
                         Next
                     </a>
-                </li>
+                </li> */}
             </ul>
         </nav>
     );
